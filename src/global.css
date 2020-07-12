@@ -1,8 +1,0 @@
-body, html, #root {
-    height: 100%;
-    width: 100%;
-}
-
-.MuiDrawer-paperAnchorDockedLeft {
-    border-right: none !important;
-}
