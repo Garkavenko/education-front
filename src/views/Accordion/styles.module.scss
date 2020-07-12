@@ -1,0 +1,20 @@
+.expanded {
+    margin: 0 !important;
+}
+
+.summary {
+    background-color: #f0f0f0 !important;
+    > div {
+        margin: 0 !important;
+        text-align: left !important;
+        justify-content: center;
+    }
+}
+
+.emptyPadding {
+    padding: 0 !important;
+}
+
+.tasksList {
+    width: 100% !important;
+}
