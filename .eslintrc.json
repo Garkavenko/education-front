@@ -1,0 +1,93 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "google",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "@typescript-eslint/no-var-requires": "warn",
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/ban-ts-comment": "warn",
+    "operator-linebreak": ["error", "before"],
+    "react/display-name": 0,
+    "object-curly-spacing": ["error", "always"],
+    "quote-props": ["error", "as-needed"],
+    "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+    "require-jsdoc": 0,
+    "indent": ["error", 2, { "SwitchCase": 1, "VariableDeclarator": "first", "MemberExpression": 1 }],
+    "max-len": [
+      "error",
+      {
+        "code": 128
+      }
+    ],
+    "no-use-before-define": "warn",
+    "no-nested-ternary": "warn",
+    "arrow-body-style": [
+      "error",
+      "as-needed"
+    ],
+    "no-param-reassign": "warn",
+    "no-mixed-operators": 0,
+    "arrow-parens": 0
+  },
+  "plugins": [
+    "react",
+    "import",
+    "react-hooks"
+  ],
+  "globals": {
+    "window": true,
+    "document": true,
+    "dataLayer": true
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2020": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".mjs",
+            ".js",
+            ".json"
+          ]
+        }
+      },
+      "import/extensions": [
+        ".js",
+        ".mjs",
+        ".jsx",
+        ".ts",
+        ".tsx"
+      ],
+      "import/core-modules": [
+      ],
+      "import/ignore": [
+        "node_modules",
+        "\\.(coffee|scss|css|less|hbs|svg|json)$"
+      ],
+      "webpack": {
+        "config": "webpack/eslint.js"
+      }
+    }
+  }
+}
