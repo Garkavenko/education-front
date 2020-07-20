@@ -1,17 +1,18 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import cx from 'classnames';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import { ExpansionPanelDetails, List, ListItem, ListItemText } from '@material-ui/core';
+import AccordionView from '@material-ui/core/Accordion';
+import { List, ListItem, ListItemText } from '@material-ui/core';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionActions';
 
 function Accordion({ onClick, tasks }: any) {
   return tasks.map((taskType: any) => (
-    <ExpansionPanel key={taskType.id} className={styles.expanded}>
-      <ExpansionPanelSummary className={styles.summary}>
+    <AccordionView key={taskType.id} className={styles.expanded}>
+      <AccordionSummary className={styles.summary}>
         {taskType.name}
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails className={styles.emptyPadding}>
+      </AccordionSummary>
+      <AccordionDetails className={styles.emptyPadding}>
         <List className={cx(styles.emptyPadding, styles.tasksList)}>
           {
             taskType.tasks.map((t: any, index: number) => (
@@ -21,8 +22,8 @@ function Accordion({ onClick, tasks }: any) {
             ))
           }
         </List>
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+      </AccordionDetails>
+    </AccordionView>
   ));
 }
 

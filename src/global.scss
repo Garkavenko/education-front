@@ -12,6 +12,10 @@ body, html, #root {
     flex: 1;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .MuiDrawer-paperAnchorDockedLeft {
     border-right: none !important;
 }
