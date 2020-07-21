@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Dialog } from '@material-ui/core';
 import SearchForm from '../SearchForm';
 import Button from '@material-ui/core/Button';
@@ -33,6 +33,7 @@ interface CreateModalProps {
 
 function CreateModal({ isVisible, onClose, disciplines, seasons }: CreateModalProps) {
   const styles = useStyles();
+  const history = useHistory();
   const [params, setParams] = useState<Record<string, number | null>>({});
   const [state, fetch] = useQuery<any>('/create-course-work-template', { method: 'post' });
 
@@ -50,14 +51,11 @@ function CreateModal({ isVisible, onClose, disciplines, seasons }: CreateModalPr
 
   const onCreate = useCallback( async () => {
     try {
-      await fetch({ data: params });
+      const res = await fetch({ data: params });
+      history.push(`/course-template/${res.id}`);
       // eslint-disable-next-line no-empty
     } catch (e) {}
-  }, [fetch, params]);
-
-  if (state.loaded && state.data && state.data.id) {
-    return <Redirect to={`/course-template/${state.data.id}`} />;
-  }
+  }, [fetch, history, params]);
 
   return (
     <Dialog open={isVisible} onClose={onClose}>

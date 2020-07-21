@@ -20,9 +20,9 @@ function AuthHandler({ children }: { children: React.ReactNode }) {
       try {
         const res = await fetch();
         dispatch(saveUser(res));
-        setDone(true);
         // eslint-disable-next-line no-empty
       } catch (e) {}
+      setDone(true);
     })();
   }, [dispatch, fetch]);
   if (done && state.loaded && !state.error && isAuthPath()) {

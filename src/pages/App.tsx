@@ -50,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles();
   const userInfo = useSelector((state: any) => state.user);
-  console.log(userInfo, 'userInfo');
   const history = useHistory();
   const [, setCookie] = useCookies([]);
   const userExists = !!userInfo?.id;
